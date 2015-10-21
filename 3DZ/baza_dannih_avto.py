@@ -3,6 +3,8 @@
 import pickle 
 
 avtomobili = []
+komand = ''
+
 print ('''
 "ввод" - ввод данных в список
 "вывод" - вывод данных из списка по алфавиту
@@ -12,18 +14,16 @@ print ('''
 "больше" - поиск по мощи, больше заданной
 "меньше" - поиск по мощи, меньше заданной
 "промежуток" - поиск авто по мощи в промежутке значений
-"конец" - завершает работу программы''') 
+"конец" - завершает работу программы''')
+
 komands = ['ввод','вывод','запись','имя','мощь','больше','меньше','промежуток','конец'] 
 
 
-
- 
-komand = input('\nВведите одну из команд {}: '.format(komands))
-while komand not in komands:
-    komand = input('Нет такой команды, введите еще раз :')
-
-
-while komand in komands:
+while komand != 'конец':
+    
+    komand = input('\nВведите одну из команд {}: '.format(komands))
+    while komand not in komands:
+        komand = input('Нет такой команды, введите еще раз :') 
 
 
 #1 Ввод данных в список avtomobili состоящий из элементов 'марка мощность'
@@ -46,10 +46,6 @@ while komand in komands:
             print(avtomobili)
             ext = input('''\nДля окончания ввода данных в базу, напишите "выход",
 Для продолжения нажмите "Enter":''')
-            
-        komand = input('\nВведите одну из команд {}: '.format(komands))
-        while komand not in komands:
-            komand = input('Нет такой команды, введите еще раз :')
 
 
 #2 Вывод данных из отсортированного списка avtomobili (т.е. список sort_avtomobili)
@@ -60,10 +56,6 @@ while komand in komands:
         sort_avtomobili = sorted(avtomobili)
         for i in sort_avtomobili:
                 print(i)
-        
-        komand = input('\nВведите одну из команд {}: '.format(komands))
-        while komand not in komands:
-            komand = input('Нет такой команды, введите еще раз :')
 
 
 #3 Запись(перезапись) данных в файл data_avto.txt из списка avtomobili 
@@ -74,10 +66,6 @@ while komand in komands:
         f = open('c:/python/data_avto.txt', 'wb')    
         pickle.dump(avtomobili,f)
         f.close()
-
-        komand = input('\nВведите одну из команд {}: '.format(komands))
-        while komand not in komands:
-            komand = input('Нет такой команды, введите еще раз :')
 
 
 #4 Поиск по марке авто или части названия марки из данных запсанного файла data_avto.txt
@@ -93,10 +81,6 @@ while komand in komands:
         print('больше нет авто')
         f.close()
         
-        komand = input('\nВведите одну из команд {}: '.format(komands))
-        while komand not in komands:
-            komand = input('Нет такой команды, введите еще раз :')
-        
 
 #5 Поиск по конкретной мощности из данных файла data_avto.txt
 
@@ -111,10 +95,6 @@ while komand in komands:
                 print(avto_mosh)
         print('больше нет авто')
         f.close()
-        
-        komand = input('\nВведите одну из команд {}: '.format(komands))
-        while komand not in komands:
-            komand = input('Нет такой команды, введите еще раз :')
 
 
 #6 Поиск по мощностям, больше заданной, так же из данных data_avto.txt
@@ -131,10 +111,6 @@ while komand in komands:
         print('больше нет авто')
         f.close()
 
-        komand = input('\nВведите одну из команд {}: '.format(komands))
-        while komand not in komands:
-            komand = input('Нет такой команды, введите еще раз :')
-
 
 #7 Поиск по мощностям, меньше заданной, из данных data_avto.txt
 
@@ -149,10 +125,6 @@ while komand in komands:
                 print(avto_mosh)
         print('больше нет авто')
         f.close()
-
-        komand = input('\nВведите одну из команд {}: '.format(komands))
-        while komand not in komands:
-            komand = input('Нет такой команды, введите еще раз :')
 
 
 #8 Поиск по мощности в промежутке от мин(mosh1) до макс(mosh2) в данных из data_avto.txt
@@ -170,15 +142,7 @@ while komand in komands:
         print('больше нет авто')
         f.close()
 
-        komand = input('\nВведите одну из команд {}: '.format(komands))
-        while komand not in komands:
-            komand = input('Нет такой команды, введите еще раз :')
 
-
-#9 Закрытие программы
-
-    if komand == komands[8]:
-        break
 
         
         
